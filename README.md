@@ -32,38 +32,24 @@ Estrutura (propriedades) que uma task deve ter:
 Rotas:
 
 - `POST - /tasks`
-    
-    Deve ser possível criar uma task no banco de dados, enviando os campos `title` e `description` por meio do `body` da requisição.
-    
-    Ao criar uma task, os campos: `id`, `created_at`, `updated_at` e `completed_at` devem ser preenchidos automaticamente, conforme a orientação das propriedades acima.
-    
+  Deve ser possível criar uma task no banco de dados, enviando os campos `title` e `description` por meio do `body` da requisição.
+  Ao criar uma task, os campos: `id`, `created_at`, `updated_at` e `completed_at` devem ser preenchidos automaticamente, conforme a orientação das propriedades acima.
 - `GET - /tasks`
-    
-    Deve ser possível listar todas as tasks salvas no banco de dados.
-    
-    Também deve ser possível realizar uma busca, filtrando as tasks pelo `title` e `description`
-    
+  Deve ser possível listar todas as tasks salvas no banco de dados.
+  Também deve ser possível realizar uma busca, filtrando as tasks pelo `title` e `description`
 - `PUT - /tasks/:id`
-    
-    Deve ser possível atualizar uma task pelo `id`.
-    
-    No `body` da requisição, deve receber somente o `title` e/ou `description` para serem atualizados.
-    
-    Se for enviado somente o `title`, significa que o `description` não pode ser atualizado e vice-versa.
-    
-    Antes de realizar a atualização, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
-    
+  Deve ser possível atualizar uma task pelo `id`.
+  No `body` da requisição, deve receber somente o `title` e/ou `description` para serem atualizados.
+  Se for enviado somente o `title`, significa que o `description` não pode ser atualizado e vice-versa.
+  Antes de realizar a atualização, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
 - `DELETE - /tasks/:id`
-    
-    Deve ser possível remover uma task pelo `id`.
-    
-    Antes de realizar a remoção, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
-    
+  Deve ser possível remover uma task pelo `id`.
+  Antes de realizar a remoção, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
 - `PATCH - /tasks/:id/complete`
-    
-    Deve ser possível marcar a task como completa ou não. Isso significa que se a task estiver concluída, deve voltar ao seu estado “normal”.
-    
-    Antes da alteração, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
+
+  Deve ser possível marcar a task como completa ou não. Isso significa que se a task estiver concluída, deve voltar ao seu estado “normal”.
+
+  Antes da alteração, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
 
 - Validar se as propriedades `title` e `description` das rotas `POST` e `PUT` estão presentes no `body` da requisição.
 
@@ -71,7 +57,7 @@ Rotas:
 
 Criação via CSV com Stream:
 
->Vamos utilizar a lib [csv-parse](https://csv.js.org/), utilizando o exemplo de [iterador async](https://csv.js.org/parse/api/async_iterator/). 
+> Vamos utilizar a lib [csv-parse](https://csv.js.org/), utilizando o exemplo de [iterador async](https://csv.js.org/parse/api/async_iterator/).
 
 Crie um arquivo a parte para realizar a leitura do arquivo CSV.
 
@@ -85,11 +71,11 @@ Formato do CSV:
 &nbsp;
 
 <p align="center">
-  <a href="#license"><img src="https://img.shields.io/github/license/LivioAlvarenga/01-NodeFundamentos?color=ff0000"></a>
-  <a href="https://github.com/LivioAlvarenga/01-NodeFundamentos/issues"><img src="https://img.shields.io/github/issues/LivioAlvarenga/01-NodeFundamentos" alt="issue site 01-NodeFundamentos" /></a>
-  <a href="https://github.com/LivioAlvarenga/01-NodeFundamentos"><img src="https://img.shields.io/github/languages/count/LivioAlvarenga/01-NodeFundamentos" alt="total amount of programming languages used in the project" /></a>
-  <a href="https://github.com/LivioAlvarenga/01-NodeFundamentos"><img src="https://img.shields.io/github/languages/top/LivioAlvarenga/01-NodeFundamentos" alt="most used language in the projects" /></a>
-  <a href="https://github.com/LivioAlvarenga/01-NodeFundamentos"><img src="https://img.shields.io/github/repo-size/LivioAlvarenga/01-NodeFundamentos" alt="repository size" /></a>
+  <a href="#license"><img src="https://img.shields.io/github/license/LivioAlvarenga/API-NodeJs-Tasks?color=ff0000"></a>
+  <a href="https://github.com/LivioAlvarenga/API-NodeJs-Tasks/issues"><img src="https://img.shields.io/github/issues/LivioAlvarenga/API-NodeJs-Tasks" alt="issue site API-NodeJs-Tasks" /></a>
+  <a href="https://github.com/LivioAlvarenga/API-NodeJs-Tasks"><img src="https://img.shields.io/github/languages/count/LivioAlvarenga/API-NodeJs-Tasks" alt="total amount of programming languages used in the project" /></a>
+  <a href="https://github.com/LivioAlvarenga/API-NodeJs-Tasks"><img src="https://img.shields.io/github/languages/top/LivioAlvarenga/API-NodeJs-Tasks" alt="most used language in the projects" /></a>
+  <a href="https://github.com/LivioAlvarenga/API-NodeJs-Tasks"><img src="https://img.shields.io/github/repo-size/LivioAlvarenga/API-NodeJs-Tasks" alt="repository size" /></a>
 <p>
 
 &nbsp;
@@ -101,9 +87,9 @@ Formato do CSV:
 
 ## 📺 Vitrine Dev
 
-| :placard: Vitrine.Dev |                                      |
-| --------------------- | ------------------------------------ |
-| :sparkles: Nome       | **API RESTful com Node.js**          |
+| :placard: Vitrine.Dev |                              |
+| --------------------- | ---------------------------- |
+| :sparkles: Nome       | **API RESTful com Node.js**  |
 | :label: Tecnologias   | NodeJs, JavaScript, Insomnia |
 
 ---
@@ -165,9 +151,9 @@ npm init -y
 
 ```bash
 # Clone este repositório
-git clone https://github.com/livioalvarenga/01-NodeFundamentos.git
+git clone https://github.com/livioalvarenga/API-NodeJs-Tasks.git
 # Acesse a pasta do projeto no seu terminal/cmd
-cd 01-NodeFundamentos
+cd API-NodeJs-Tasks
 # Instale as dependências
 npm install
 # Execute a aplicação em modo de desenvolvimento
@@ -178,7 +164,7 @@ npm run server
 ### 🧭 Rodando a aplicação server (Modo desenvolvimento)
 
 ```bash
-npm run server
+npm run dev
 # A aplicação será aberta na porta:3333 - acesse http://0.0.0.0:3333/
 
 http localhost:3333
