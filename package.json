@@ -1,0 +1,17 @@
+{
+  "name": "api-rest-nodejs-tasks",
+  "version": "1.0.0",
+  "description": "API REST em NodeJs puro, para realizar o CRUD de suas tasks (tarefas)",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "NodeJs",
+    "Insomnia",
+    "API",
+    "Rest"
+  ],
+  "author": "Livio Alvarenga",
+  "license": "MIT"
+}
