@@ -14,7 +14,7 @@
 &nbsp;
 <a id="-sobre-o-projeto"></a>
 
-![Insomnia](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/insomnia.gif?raw=true#vitrinedev)
+![Insomnia](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/GET.gif?raw=true#vitrinedev)
 
 ## 💻 Sobre o projeto
 
