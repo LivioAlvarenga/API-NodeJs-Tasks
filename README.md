@@ -14,9 +14,13 @@
 &nbsp;
 <a id="-sobre-o-projeto"></a>
 
+![Insomnia](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/insomnia.gif?raw=true#vitrinedev)
+
 ## 💻 Sobre o projeto
 
 🚀 Desenvolver uma API REST para realizar o CRUD de suas tasks (tarefas). Usei Node.js focado nos fundamentos da tecnologia, sem frameworks ou bibliotecas externas. Aprenderemos sobre módulos internos do Node.js como HTTP, Crypto e File System e sobre fundamentos HTTP como requests, respondes, headers, status code, route e query parameters, etc. Também daremos profundidade em Streams no Node.js e como aplica-las para realizarmos operações assíncronas e parciais em nosso back-end.
+
+> **disclaimer:** Sei que esta não é a melhor forma de criar uma API-REST, mas gostaria de ver como uma API roda por debaixo do capo. Queria ver o conceito de Streams no Node.JS, vendo Buffers e chunk rodando ao vivo e a cores, rs e foi ótimo para aprender sobre o assunto. Olharei para o Express com outros olhos agora.
 
 ### Rotas e regras de negócio
 
@@ -34,22 +38,36 @@ Rotas:
 - `POST - /tasks`
   Deve ser possível criar uma task no banco de dados, enviando os campos `title` e `description` por meio do `body` da requisição.
   Ao criar uma task, os campos: `id`, `created_at`, `updated_at` e `completed_at` devem ser preenchidos automaticamente, conforme a orientação das propriedades acima.
+
+![POST](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/POST.gif?raw=true)
+
 - `GET - /tasks`
   Deve ser possível listar todas as tasks salvas no banco de dados.
   Também deve ser possível realizar uma busca, filtrando as tasks pelo `title` e `description`
+
+![GET](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/GET.gif?raw=true)
+
 - `PUT - /tasks/:id`
   Deve ser possível atualizar uma task pelo `id`.
   No `body` da requisição, deve receber somente o `title` e/ou `description` para serem atualizados.
   Se for enviado somente o `title`, significa que o `description` não pode ser atualizado e vice-versa.
   Antes de realizar a atualização, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
+
+![PUT](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/PUT.gif?raw=true)
+
 - `DELETE - /tasks/:id`
   Deve ser possível remover uma task pelo `id`.
   Antes de realizar a remoção, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
+
+![DELETE](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/DELETE.gif?raw=true)
+
 - `PATCH - /tasks/:id/complete`
 
   Deve ser possível marcar a task como completa ou não. Isso significa que se a task estiver concluída, deve voltar ao seu estado “normal”.
 
   Antes da alteração, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
+
+![PATCH](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/PATCH.gif?raw=true)
 
 - Validar se as propriedades `title` e `description` das rotas `POST` e `PUT` estão presentes no `body` da requisição.
 
@@ -129,6 +147,14 @@ npm init -y
 "type": "module",
 ```
 
+```json
+// Adicionar no arquivo package.json no campo "scripts"
+"scripts": {
+  "dev": "node --watch src/server.js", // start server
+  "csv": "node streams/import-csv.js" // import csv file with tasks
+},
+```
+
 ### Instalando dependências
 
 ```bash
@@ -164,8 +190,10 @@ cd API-NodeJs-Tasks
 # Instale as dependências
 npm install
 # Execute a aplicação em modo de desenvolvimento
-npm run server
+npm run dev
 # A aplicação será aberta na porta:3333 - acesse http://localhost:3333
+npm run csv
+# Importar arquivo CSV com tasks (open db.json to see the import result)
 ```
 
 ### 🧭 Rodando a aplicação server (Modo desenvolvimento)
@@ -173,11 +201,24 @@ npm run server
 ```bash
 npm run dev
 # A aplicação será aberta na porta:3333 - acesse http://0.0.0.0:3333/
-
-http localhost:3333
-# testando a aplicação com o HTTPie
-
 ```
+
+### Importando arquivo CSV com tarefas
+
+```bash
+npm run dev # start server
+npm run csv # import csv file with tasks
+```
+
+### Testando requests com Insomnia
+
+```bash
+npm run dev # start server
+```
+
+> Importar o arquivo `Insomnia.json` no Insomnia para testar as requests
+
+![Insomnia](https://github.com/LivioAlvarenga/API-NodeJs-Tasks/blob/master/files/insomnia.png?raw=true)
 
 &nbsp;
 
