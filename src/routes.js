@@ -12,10 +12,14 @@ export const routes = [
       const { title, description } = request.body;
 
       if (!title) {
-        return response.writeHead(400).end("Title is required");
+        return response
+          .writeHead(400)
+          .end(JSON.stringify({ message: "Title is required" }));
       }
       if (!description) {
-        return response.writeHead(400).end("Description is required");
+        return response
+          .writeHead(400)
+          .end(JSON.stringify({ message: "Description is required" }));
       }
 
       const task = {
@@ -54,14 +58,16 @@ export const routes = [
       const { title, description } = request.body;
 
       if (!title || !description) {
-        return res
+        return response
           .writeHead(400)
           .end(JSON.stringify({ message: "title or description are required" }));
       }
 
       const taskExist = database.idExists("tasks", id);
       if (taskExist.length === 0) {
-        return response.writeHead(404).end(`Task with id: ${id} not found!`);
+        return response
+          .writeHead(404)
+          .end(JSON.stringify({ message: `Task with id: ${id} not found!` }));
       }
 
       database.update("tasks", id, {
@@ -79,7 +85,14 @@ export const routes = [
     handler: (request, response) => {
       const { id } = request.params;
 
-      database.delete("users", id);
+      const taskExist = database.idExists("tasks", id);
+      if (taskExist.length === 0) {
+        return response
+          .writeHead(404)
+          .end(JSON.stringify({ message: `Task with id: ${id} not found!` }));
+      }
+
+      database.delete("tasks", id);
 
       return response.writeHead(204).end();
     },
