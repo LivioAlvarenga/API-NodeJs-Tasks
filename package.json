@@ -14,5 +14,8 @@
     "Rest"
   ],
   "author": "Livio Alvarenga",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^5.3.5"
+  }
 }

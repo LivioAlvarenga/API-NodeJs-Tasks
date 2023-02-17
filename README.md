@@ -129,6 +129,13 @@ npm init -y
 "type": "module",
 ```
 
+### Instalando dependências
+
+```bash
+# Instalando o csv-parse para realizar a leitura do arquivo CSV
+npm install csv-parse
+```
+
 &nbsp;
 
 ---
