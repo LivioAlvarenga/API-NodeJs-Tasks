@@ -63,8 +63,8 @@ export const routes = [
           .end(JSON.stringify({ message: "title or description are required" }));
       }
 
-      const taskExist = database.idExists("tasks", id);
-      if (taskExist.length === 0) {
+      const task = database.idExists("tasks", id);
+      if (task.length === 0) {
         return response
           .writeHead(404)
           .end(JSON.stringify({ message: `Task with id: ${id} not found!` }));
@@ -85,14 +85,37 @@ export const routes = [
     handler: (request, response) => {
       const { id } = request.params;
 
-      const taskExist = database.idExists("tasks", id);
-      if (taskExist.length === 0) {
+      const task = database.idExists("tasks", id);
+      if (task.length === 0) {
         return response
           .writeHead(404)
           .end(JSON.stringify({ message: `Task with id: ${id} not found!` }));
       }
 
       database.delete("tasks", id);
+
+      return response.writeHead(204).end();
+    },
+  },
+  {
+    method: "PATCH",
+    path: buildRoutePath("/tasks/:id/complete"),
+    handler: (request, response) => {
+      const { id } = request.params;
+
+      const task = database.idExists("tasks", id);
+
+      if (task.length === 0) {
+        return response
+          .writeHead(404)
+          .end(JSON.stringify({ message: `Task with id: ${id} not found!` }));
+      }
+
+      const isTaskCompleted = !!task[0].completed_at;
+
+      const completed_at = isTaskCompleted ? null : new Date();
+
+      database.update("tasks", id, { completed_at });
 
       return response.writeHead(204).end();
     },
