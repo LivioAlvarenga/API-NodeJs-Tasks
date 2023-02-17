@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "API REST em NodeJs puro, para realizar o CRUD de suas tasks (tarefas)",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "dev": "node --watch src/server.js"
   },
