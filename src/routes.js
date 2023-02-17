@@ -41,7 +41,6 @@ export const routes = [
     path: buildRoutePath("/tasks"),
     handler: (request, response) => {
       const { title, description } = request.query;
-
       const tasks = database.select("tasks", {
         title,
         description,
