@@ -38,6 +38,12 @@ export class Database {
     return data;
   }
 
+  idExists(table, id) {
+    let data = this.#database[table] ?? [];
+    data = data.filter((row) => row.id === id);
+    return data;
+  }
+
   insert(table, data) {
     if (Array.isArray(this.#database[table])) {
       this.#database[table].push(data);
@@ -53,7 +59,8 @@ export class Database {
   update(table, id, data) {
     const rowIndex = this.#database[table].findIndex((row) => row.id === id);
     if (rowIndex > -1) {
-      this.#database[table][rowIndex] = { id, ...data };
+      const row = this.#database[table][rowIndex];
+      this.#database[table][rowIndex] = { id, ...row, ...data };
       this.#persist();
     }
   }
